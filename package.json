@@ -1,5 +1,29 @@
 {
+  "name": "team-info-generator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hamzaramzanali/team-info-generator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^24.9.0"
+  },
   "dependencies": {
     "inquirer": "^8.2.4"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/hamzaramzanali/team-info-generator/issues"
+  },
+  "homepage": "https://github.com/hamzaramzanali/team-info-generator#readme"
 }
