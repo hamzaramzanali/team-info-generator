@@ -133,7 +133,7 @@ function generateHtml(employees) {
                 <a href="mailto:${employees[i].getEmail()}">
                 <li class="list-group-item">Email: ${employees[i].getEmail()}</li>
                 </a>
-                <li class="list-group-item">Ofiice Number: ${employees[i].getofficeNumber()}</li>
+                <li class="list-group-item">Ofiice Number: ${employees[i].getOfficeNumber()}</li>
             </ul>
             </div>
             </div>`
