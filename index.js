@@ -15,7 +15,7 @@ inquirer
         {
             type: 'input',
             name: 'manageremail',
-            message: "What is the manager's email",
+            message: "What is the manager's email?",
         },
         {
             type: 'input',
@@ -30,7 +30,6 @@ inquirer
     ]).then(response => {
         const newManager = new Manager(response.managername, response.managerID, response.manageremail, response.officeNumber)
         employees.push(newManager)
-        console.log(employees)
         menu()
     })
 function menu() {
@@ -85,7 +84,6 @@ function addEngineer() {
         ]).then(response => {
             const newEngineer = new Engineer(response.engineername, response.engineerId, response.engineerEmail, response.github)
             employees.push(newEngineer)
-            console.log(employees)
             menu()
         })
 }
@@ -116,56 +114,76 @@ function addIntern() {
         ]).then(response => {
             const newIntern = new Intern(response.internname, response.internId, response.internEmail, response.school)
             employees.push(newIntern)
-            console.log(employees)
             menu()
         })
 }
 
 function generateHtml(employees) {
-    console.log(employees)
     let employee = ""
     for (let i = 0; i < employees.length; i++) {
         if (employees[i].getRole() === "Manager") {
-            employee = employee + `<div><h2>${employees[i].getName()}</h2>
-                <h3>${employees[i].getRole()}</h3>
-                <ul>
-                <li>Id: ${employees[i].getId()}</li>
-                <li>Email: ${employees[i].getEmail()}</li>
-                <li>Ofiice Number: ${employees[i].getofficeNumber()}</li>
-                </ul>
-                </div>`
+            employee = employee + `<div class="card bg-primary" style="width: 18rem;">
+            <div class="card-header text-white">
+            <h2>${employees[i].getName()}</h2>
+            <h3>${employees[i].getRole()}</h3>
+            </div>
+            <div class="card-body bg-light">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">ID: ${employees[i].getId()}</li>
+                <li class="list-group-item">Email: ${employees[i].getEmail()}</li>
+                <li class="list-group-item">Ofiice Number: ${employees[i].getofficeNumber()}</li>
+            </ul>
+            </div>
+            </div>`
         }
         if (employees[i].getRole() === "Engineer") {
-            employee = employee + `<div><h2>${employees[i].getName()}</h2>
-                <h3>${employees[i].getRole()}</h3>
-                <ul>
-                <li>Id: ${employees[i].getId()}</li>
-                <li>Email: ${employees[i].getEmail()}</li>
-                <li>Github: ${employees[i].getGithub()}</li>
-                </ul>
-                </div>`
+            employee = employee + `<div class="card bg-primary" style="width: 18rem;">
+            <div class="card-header text-white">
+            <h2>${employees[i].getName()}</h2>
+            <h3>${employees[i].getRole()}</h3>
+            </div>
+            <div class="card-body bg-light">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">ID: ${employees[i].getId()}</li>
+                <li class="list-group-item">Email: ${employees[i].getEmail()}</li>
+                <li class="list-group-item">Github: ${employees[i].getGithub()}</li>
+            </ul>
+            </div>
+            </div>`
         }
         if (employees[i].getRole() === "Intern") {
-            employee = employee + `<div><h2>${employees[i].getName()}</h2>
-                <h3>${employees[i].getRole()}</h3>
-                <ul>
-                <li>Id: ${employees[i].getId()}</li>
-                <li>Email: ${employees[i].getEmail()}</li>
-                <li>School: ${employees[i].getSchool()}</li>
-                </ul>
-                </div>`
+            employee = employee + `<div class="card bg-primary" style="width: 18rem;">
+            <div class="card-header text-white">
+            <h2>${employees[i].getName()}</h2>
+            <h3>${employees[i].getRole()}</h3>
+            </div>
+            <div class="card-body bg-light">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">ID: ${employees[i].getId()}</li>
+                <li class="list-group-item">Email: ${employees[i].getEmail()}</li>
+                <li class="list-group-item">School: ${employees[i].getSchool()}</li>
+            </ul>
+            </div>
+            </div>`
         }
     }
     return `
-        <!DOCTYPE html>
-        <html lang="en">
-        <head>
-            <meta charset="UTF-8">
-            <meta http-equiv="X-UA-Compatible" content="IE=edge">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Document</title>
-        </head>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>My Team</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+        <link rel="stylesheet" href="./assets/css/style.css">
+    </head>
         <body>
+            <div class="jumbotron bg-danger text-center text-white">
+                <div class="container">
+                <h1 class="display-4">My Team</h1>
+                </div>
+            </div>
             ${employee}
         </body>
         </html>
