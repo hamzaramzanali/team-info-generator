@@ -130,7 +130,9 @@ function generateHtml(employees) {
             <div class="card-body bg-light">
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">ID: ${employees[i].getId()}</li>
+                <a href="mailto:${employees[i].getEmail()}">
                 <li class="list-group-item">Email: ${employees[i].getEmail()}</li>
+                </a>
                 <li class="list-group-item">Ofiice Number: ${employees[i].getofficeNumber()}</li>
             </ul>
             </div>
@@ -145,8 +147,12 @@ function generateHtml(employees) {
             <div class="card-body bg-light">
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">ID: ${employees[i].getId()}</li>
+                <a href="mailto:${employees[i].getEmail()}">
                 <li class="list-group-item">Email: ${employees[i].getEmail()}</li>
+                </a>
+                <a href="github.com/${employees[i].getGithub()}">
                 <li class="list-group-item">Github: ${employees[i].getGithub()}</li>
+                </a>
             </ul>
             </div>
             </div>`
@@ -160,7 +166,9 @@ function generateHtml(employees) {
             <div class="card-body bg-light">
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">ID: ${employees[i].getId()}</li>
+                <a href="mailto:${employees[i].getEmail()}">
                 <li class="list-group-item">Email: ${employees[i].getEmail()}</li>
+                </a>
                 <li class="list-group-item">School: ${employees[i].getSchool()}</li>
             </ul>
             </div>
@@ -184,7 +192,9 @@ function generateHtml(employees) {
                 <h1 class="display-4">My Team</h1>
                 </div>
             </div>
+            <div class="row d-flex justify-content-around">
             ${employee}
+            </div>
         </body>
         </html>
         `
